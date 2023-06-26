@@ -1,0 +1,18 @@
+{
+    "v_list": "{\"300\": 27, \"400\": 13, \"500\": 10}", 
+    "logip": "129.226.27.178:80", 
+    "url": "https://ingame-pro.oss-ap-south-1.aliyuncs.com/base/channel_2002/", 
+    "ip": "149.129.167.12", 
+    "des": "", 
+    "bigversion": "1", 
+    "sub_list": {
+        "300": 27, 
+        "400": 13,
+        "500": 10
+    }, 
+    "version": "114", 
+    "forceurl": "", 
+    "verify": true, 
+    "port": "8810", 
+    "ipgroup": "149.129.167.12,147.139.33.41"
+}
