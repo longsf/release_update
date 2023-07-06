@@ -9,7 +9,7 @@ import sys
 import time
 import json
 print("start------------>>>>>")
-CHANNEL_PATH = "/Users/longsf/workspace/cocos/update/release_update/dir_channel/"
+CHANNEL_PATH = "D:/workspace/code/update/release_update/dir_channel/"
 gameMap = [
     {"name":"dragon", "gameid":300},
     {"name": "sevenupdown", "gameid":400},
