@@ -9,7 +9,7 @@ import sys
 import time
 import json
 print("start------------>>>>>")
-CHANNEL_PATH = "D:/workspace/code/update/release_update/dir_channel/"
+CHANNEL_PATH = os.getcwd()
 gameMap = [
     {"name":"dragon", "gameid":300},
     {"name": "sevenupdown", "gameid":400},
