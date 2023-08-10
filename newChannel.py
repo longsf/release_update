@@ -15,7 +15,8 @@ gameMap = [
     {"name": "sevenupdown", "gameid":400},
     {"name": "crash", "gameid":500},
     {"name": "ab", "gameid":600},
-    {"name": "slot", "gameid":700}
+    {"name": "slot", "gameid":700},
+    {"name": "fishprawncrab", "gameid":900}
 ]
 demoChannel = "2001"
 #删除目录
