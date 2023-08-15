@@ -13,7 +13,7 @@
         "400": 30, 
         "500": 25
     }, 
-    "version": "374", 
+    "version": "376", 
     "forceurl": "", 
     "verify": true, 
     "port": "8810", 
