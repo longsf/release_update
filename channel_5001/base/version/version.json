@@ -5,10 +5,6 @@
     "ip": "147.139.3.24", 
     "des": "", 
     "bigversion": "1", 
-    "port": "8810", 
-    "version": "24", 
-    "forceurl": "", 
-    "verify": true, 
     "sub_list": {
         "900": 11, 
         "600": 12, 
@@ -17,5 +13,9 @@
         "400": 12, 
         "500": 12
     }, 
+    "version": "25", 
+    "forceurl": "", 
+    "verify": true, 
+    "port": "8810", 
     "ipgroup": "147.139.3.24,147.139.8.72"
 }
