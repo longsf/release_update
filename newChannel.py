@@ -9,7 +9,7 @@ import sys
 import time
 import json
 print("start------------>>>>>")
-CHANNEL_PATH = os.getcwd()
+CHANNEL_PATH = os.path.normpath(os.getcwd())
 gameMap = [
     {"name":"dragon", "gameid":300},
     {"name": "sevenupdown", "gameid":400},
@@ -40,16 +40,17 @@ def copyDir(path1,path2):
 def inputChannel():
     channel = raw_input('input new channel:')
     # print CHANNEL_PATH+channel
-    isExists=os.path.exists(CHANNEL_PATH+"channel_"+channel)
+    isExists=os.path.exists(CHANNEL_PATH+"/channel_"+channel)
     # print isExists
     if isExists:
+        print("inputChannel OK")
         return channel
     else:
         print("input dir not exit")
 
 def reviseBaseVersion(channel_):
     #修改base目录下version 文件下的version.json 里面的渠道为当前渠道号
-    path = CHANNEL_PATH + "channel_"+channel_+"/"+"base/version/version.json"
+    path = CHANNEL_PATH + "/channel_"+channel_+"/"+"base/version/version.json"
     isExists=os.path.exists(path)
     if isExists:    
         print("update base version File-->"+path)
@@ -62,11 +63,17 @@ def reviseBaseVersion(channel_):
             json_all['url'] = urlPath
         with open(path, 'w+') as fw:
             json.dump(json_all, fw, ensure_ascii=False, indent=4)
-            return
+    #修改base目录下version.txt 里面的版本号为默认版本号
+    path = CHANNEL_PATH + "/channel_"+channel_+"/"+"base/version.txt"
+    print("path  = ",path)
+    isExists=os.path.exists(path)
+    if isExists:
+        with open(path, 'w') as file:
+            file.write("10")
 
 def reviseSubGameVersion(channel_):
     #修改base目录下version 文件下的version.json 里面的渠道为当前渠道号
-    path = CHANNEL_PATH + "channel_"+channel_+"/"+"gameList"
+    path = CHANNEL_PATH + "/channel_"+channel_+"/"+"gameList"
     gamelist = os.listdir(path)
     for name in gamelist:
         print(name)
@@ -85,16 +92,25 @@ def reviseSubGameVersion(channel_):
                 json.dump(json_all, fw, ensure_ascii=False, indent=4)
         else:
             print versionFile+"is nil!"
+    #修改base目录下version.txt 里面的版本号为默认版本号
+    path = CHANNEL_PATH + "/channel_"+channel_+"/"+"gameList"
+    gamelist = os.listdir(path)
+    for name in gamelist:
+        versionFile = path+"/"+name+"/version.txt"
+        isExists=os.path.exists(versionFile)
+        if isExists:
+            with open(versionFile, 'w') as file:
+                file.write("10")
 def removeUnlessDir(channel_):
     #先删除base路径下的文件夹
-    path = CHANNEL_PATH+"channel_"+channel_ +"/base"
+    path = CHANNEL_PATH+"/channel_"+channel_ +"/base"
     dirlist = os.listdir(path)
     for name in dirlist:
         if str(name) != "version" and str(name) != "version.txt" :
             print path+"/"+name
             deleteDir(path+"/"+name)
      #先删除gameList路径下的文件夹
-    path = CHANNEL_PATH+"channel_"+channel_ +"/gameList"
+    path = CHANNEL_PATH+"/channel_"+channel_ +"/gameList"
     dirlist = os.listdir(path)
     for name in dirlist:
         gamepath = path+"/"+name
@@ -107,8 +123,8 @@ def main():
     # 输入新的渠道
     print("start------------>>>>>")
     channel = inputChannel()
-    CURDIR = CHANNEL_PATH+ "channel_"+channel+"/"
-    path = CHANNEL_PATH+"channel_"+channel
+    CURDIR = CHANNEL_PATH+ "/channel_"+channel+"/"
+    path = CHANNEL_PATH+"/channel_"+channel
     print CURDIR
     #修改渠道文件信息
     reviseBaseVersion(channel)
