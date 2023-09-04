@@ -18,7 +18,7 @@ cp ${CURDIR}"/channel_2001/base/version.txt" ${CURDIR}"/channel_${NEW_CHANENEl}/
 echo "开始复制gameList 下 version 和 version.txt文件"
 cd ${CURDIR}/channel_${NEW_CHANENEl}/gameList
 
-gameName=(crash dragon sevenupdown ab fishprawncrab slot)
+gameName=(crash dragon sevenupdown ab fishprawncrab slot slotpart)
 num=${#gameName[@]} 
 for((i=0;i<num;i++));  
 do   
